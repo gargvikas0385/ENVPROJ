@@ -9,12 +9,9 @@ jobs:
   build:
     docker:
       - image: cimg/base:2020.01
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
       - run:
           name: "echo an env var that is part of our project"
           command: |
-            echo $ABC # this env var must be set within the project
+            echo $MY_ENV_VAR
